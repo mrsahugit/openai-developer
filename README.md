@@ -6,7 +6,7 @@ Each model has different capabilities and price points. Prices are per 1,000 tok
 
 ## Features
 
-![Help IntelliSense](https://github.com/mrsahugit/openai-developer/blob/43413c718ff9c69dac072f144f44e2a944eed122/resources/help.gif)
+<img src="https://raw.githubusercontent.com/mrsahugit/openai-developer/main/resources/help.gif">
 
 ### Start Conversation
 
@@ -45,7 +45,7 @@ In order to switch between the models ChatGPT and Codex, follow these instructio
 2. Search for openai-developer.model.
 3. Use the dropdown to switch between ChatGPT and Codex.
 
-![Settings IntelliSense](https://github.com/mrsahugit/openai-developer/blob/7c5f35f33608bf1433b2e59cedd4d43a76f9da81/resources/settings.png)
+<img src="https://raw.githubusercontent.com/mrsahugit/openai-developer/main/resources/settings.png">
 
 ## Commands
 
@@ -62,7 +62,7 @@ You must have Visual Studio Code 1.75.0 (January 2023) or later to install the e
 
 ## Release Notes
 
-### 1.0.0
+### 0.0.1
 
 Initial release of OpenAI Developer
 

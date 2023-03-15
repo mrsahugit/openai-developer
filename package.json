@@ -1,14 +1,14 @@
 {
   "name": "openai-developer",
   "displayName": "OpenAI Developer",
-  "description": "Integration with OpenAI, ChatGPT, GPT3.5 and Codex for Developer.",
+  "description": "Integration with OpenAI models ChatGPT(GPT3.5) and Codex for Developer.",
   "license": "SEE LICENSE IN LICENSE.md",
   "icon": "resources/openai.png",
   "repository": {
     "type": "git",
     "url": "https://github.com/mrsahugit/openai-developer"
   },
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "manassahu",
   "engines": {
     "vscode": "^1.76.0"
