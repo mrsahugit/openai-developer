@@ -6,6 +6,8 @@ Each model has different capabilities and price points. Prices are per 1,000 tok
 
 ## Features
 
+![Help IntelliSense](https://github.com/mrsahugit/openai-developer/blob/43413c718ff9c69dac072f144f44e2a944eed122/resources/help.gif)
+
 ### Start Conversation
 
 Use the "OpenAI Developer: Start Conversation" command in the Command Palette:
@@ -14,8 +16,6 @@ Use the "OpenAI Developer: Start Conversation" command in the Command Palette:
 2. Begin typing `OpenAI Developer: Start Conversation`, and select it when it appears.
 3. Enter the question you'd like to ask.
 4. Wait for the response. It will appear in a new tab.
-
-![Recurrence trigger IntelliSense](https://raw.githubusercontent.com/microsoft/vscode-azurelogicapps/main/resources/recurrence-trigger.gif)
 
 ### Change API Key
 
