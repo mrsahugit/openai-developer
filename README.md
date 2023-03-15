@@ -1,20 +1,31 @@
 # OpenAI - Developer
 
-This VSCode Extension query the OpenAI models [OpenAI](https://openai.com/blog). The models currently implemented are ChatGPT and Codex. Other models will be implemented soon.
+This VSCode Extension queries the OpenAI models [OpenAI](https://openai.com/blog). The models currently implemented are ChatGPT and Codex. Other OpenAI models will be coming soon.
 
-Each model has different capabilities and price points. Prices are per 1,000 tokens. You can think of tokens as pieces of words, where 1,000 tokens is about 750 words. [OpenAI Pricing](https://openai.com/pricing)
+Each model has different capabilities and price points. Prices are per 1,000 tokens. You can think of tokens as pieces of words, where 1,000 tokens are about 750 words. See [OpenAI Pricing](https://openai.com/pricing)
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+### Start Conversation
 
-For example if there is an image subfolder under your extension project workspace:
+Use the "OpenAI Developer: Start Conversation" command in the Command Palette:
 
-\!\[feature X\]\(images/feature-x.png\)
+1. Press `Ctrl` + `Shift` + `P` to open the Command Palette.
+2. Begin typing `OpenAI Developer: Start Conversation`, and select it when it appears.
+3. Enter the question you'd like to ask.
+4. Wait for the response. It will appear in a new tab.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+![Recurrence trigger IntelliSense](https://raw.githubusercontent.com/microsoft/vscode-azurelogicapps/main/resources/recurrence-trigger.gif)
 
 ## Authentication
+
+When you query for the first time, you will be prompted to enter an OpenAI API key. This is used by the extension to access the API and is only sent to OpenAI.
+
+To find your OpenAI API key:
+
+1. Go to https://platform.openai.com/account/api-keys. You will need to log in (or sign up) to your OpenAI account.
+2. Click "Create new secret key", and copy it.
+3. You should then paste it into VS Code when prompted.
 
 ## Configuration
 
@@ -25,6 +36,8 @@ In order to switch between the models ChatGPT and Codex, follow these instructio
 1. `Ctrl` + `,` to open Preferences.
 2. Search for openai-developer.model.
 3. Use the dropdown to switch between ChatGPT and Codex.
+
+https://github.com/mrsahugit/openai-developer/blob/7c5f35f33608bf1433b2e59cedd4d43a76f9da81/resources/settings.png
 
 ## Commands
 
@@ -37,39 +50,13 @@ In order to switch between the models ChatGPT and Codex, follow these instructio
 
 You must have Visual Studio Code 1.75.0 (January 2023) or later to install the extension.
 
-## Extension Settings
-
-In order to switch between OpenAI models, follow these instructions:
-
-1. `Ctrl` + `,` to open Preferences.
-2. Search for `openai-developer.model`.
-3. Use the dropdown to switch between ChatGPT and Codex.
-
-This extension contributes the following settings:
-
-* `openai-developer.model`: Select the OpenAI model. Default model is ChatGPT (gpt-turbo)
-
 ## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
-
 ### 1.0.0
 
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
+Initial release of OpenAI Developer
 
 ## Following extension guidelines
 
