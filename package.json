@@ -1,0 +1,88 @@
+{
+  "name": "openai-developer",
+  "displayName": "OpenAI Developer",
+  "description": "Integration with OpenAI, ChatGPT, GPT3.5 and Codex for Developer.",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "icon": "resources/openai.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mrsahugit/chatgpt"
+  },
+  "version": "0.0.1",
+  "publisher": "mrsahugit",
+  "engines": {
+    "vscode": "^1.76.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Data Science",
+    "Testing"
+  ],
+  "keywords": [
+    "openai",
+    "chatgpt",
+    "gpt-3",
+    "codex",
+    "ai"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "openai-developer.changeAPIKey",
+        "title": "OpenAI Developer: Change API Key"
+      },
+      {
+        "command": "openai-developer.startConversation",
+        "title": "OpenAI Developer: Start Conversation"
+      }
+    ],
+    "configuration": {
+      "title": "OpenAI Developer - Configurations",
+      "properties": {
+        "openai-developer.model": {
+          "markdownDescription": "The model (ChatGPT or Codex) to find answer for your queries. More pricing info at https://openai.com/pricing#chat",
+          "type": "string",
+          "default": "gpt-turbo",
+          "enum": [
+            "gpt-turbo",
+            "codex"
+          ],
+          "enumItemLabels": [
+            "ChatGPT - Free (Limited), Paid",
+            "Codex - Free"
+          ],
+          "enumDescriptions": [
+            "A set of models that improve on GPT-3 and can understand as well as generate natural language or code. This model uses OpenAI credits, which will be charged to your OpenAI account associated with the linked API key.",
+            "A set of models that can understand and generate code, including translating natural language to code. This model is free and uses no OpenAI credits, but may produce lower quality results."
+          ]
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.76.0",
+    "@typescript-eslint/eslint-plugin": "^5.53.0",
+    "@typescript-eslint/parser": "^5.53.0",
+    "@vscode/test-electron": "^2.2.3",
+    "eslint": "^8.34.0",
+    "glob": "^8.1.0",
+    "mocha": "^10.2.0",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "axios": "^1.3.4"
+  }
+}
