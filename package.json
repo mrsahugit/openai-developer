@@ -6,7 +6,7 @@
   "icon": "resources/openai.png",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mrsahugit/chatgpt"
+    "url": "https://github.com/mrsahugit/openai-developer"
   },
   "version": "0.0.1",
   "publisher": "mrsahugit",

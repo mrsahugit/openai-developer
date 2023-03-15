@@ -1,6 +1,6 @@
 /**
  * @author Manas Sahu
- * https://github.com/mrsahugit/chatgpt
+ * https://github.com/mrsahugit/openai-developer
  *
  * @license
  * Copyright (c) 2023 - Present, Manas Sahu
@@ -44,7 +44,6 @@ export class OpenAIService {
 
         try {
             const response = await axios.post(`${this.url}/v1/chat/completions`, body, { headers });
-            // console.log(response);
             return { code: 'OK', status: response.status, data: response.data };
         } catch (error: any) {
             return { code: 'Error', data: error };
