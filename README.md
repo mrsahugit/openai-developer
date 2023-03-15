@@ -17,6 +17,14 @@ Use the "OpenAI Developer: Start Conversation" command in the Command Palette:
 
 ![Recurrence trigger IntelliSense](https://raw.githubusercontent.com/microsoft/vscode-azurelogicapps/main/resources/recurrence-trigger.gif)
 
+### Change API Key
+
+Once your OpenAI API key has been set you can update it using the "OpenAI Developer: Change API Key" command in the Command Palette:
+
+1. Press `Ctrl` + `Shift` + `P` to open the Command Palette.
+2. Begin typing `OpenAI Developer: Change API Key`, and select it when it appears.
+3. Enter your OpenAI API key (see above instructions on how to find).
+
 ## Authentication
 
 When you query for the first time, you will be prompted to enter an OpenAI API key. This is used by the extension to access the API and is only sent to OpenAI.
@@ -37,7 +45,7 @@ In order to switch between the models ChatGPT and Codex, follow these instructio
 2. Search for openai-developer.model.
 3. Use the dropdown to switch between ChatGPT and Codex.
 
-https://github.com/mrsahugit/openai-developer/blob/7c5f35f33608bf1433b2e59cedd4d43a76f9da81/resources/settings.png
+![Settings IntelliSense](https://github.com/mrsahugit/openai-developer/blob/7c5f35f33608bf1433b2e59cedd4d43a76f9da81/resources/settings.png)
 
 ## Commands
 
@@ -57,24 +65,5 @@ You must have Visual Studio Code 1.75.0 (January 2023) or later to install the e
 ### 1.0.0
 
 Initial release of OpenAI Developer
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
 
 **Enjoy!**
