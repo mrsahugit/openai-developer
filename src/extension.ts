@@ -14,8 +14,12 @@ import * as vscode from 'vscode';
 
 import { ext } from './extensionVariables';
 
+import { ChatProvider } from './views/ChatProvider';
+
 import { changeAPIKey } from './commands/changeAPIKey';
 import { startConversation } from './commands/startConversation';
+import { explainCode } from './commands/explainCode';
+import { findProblem } from './commands/findProblem';
 
 export function activate(context: vscode.ExtensionContext) {
 
@@ -25,6 +29,11 @@ export function activate(context: vscode.ExtensionContext) {
 	ext.outputChannel = outputChannel;
 	context.subscriptions.push(outputChannel);
 
+	const provider = new ChatProvider();
+	vscode.window.registerWebviewViewProvider("openai-developer-chatview", provider, {
+		webviewOptions: { retainContextWhenHidden: true }
+	});
+
 	let disposableChangeAPIKey = vscode.commands.registerCommand('openai-developer.changeAPIKey', async () => {
 		await changeAPIKey(true);
 	});
@@ -33,7 +42,15 @@ export function activate(context: vscode.ExtensionContext) {
 		await startConversation();
 	});
 
-	context.subscriptions.push(disposableChangeAPIKey, disposableStartConversation);
+	let disposableExplainCode = vscode.commands.registerCommand('openai-developer.explainCode', async () => {
+		await explainCode();
+	});
+
+	let disposableFindProblem = vscode.commands.registerCommand('openai-developer.findProblem', async () => {
+		await findProblem();
+	});
+
+	context.subscriptions.push(disposableChangeAPIKey, disposableStartConversation, disposableExplainCode, disposableFindProblem);
 }
 
 export function deactivate() {}

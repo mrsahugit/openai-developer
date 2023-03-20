@@ -31,41 +31,63 @@ export class OpenAIService {
         return null;
     }  
     
-    async executeGPTTurbo(key: string, q: string): Promise<any> {
+    async executeGPTTurbo(key: string, maxTokens: number, temperature: number, q: string): Promise<any> {
         const { headers } = this.buildHeader(key);
 
         var body = JSON.stringify({
-            'model': 'gpt-3.5-turbo',
-            'messages': [{
-                'role': 'user',
-                'content': q
-            }]
+            "model": "gpt-3.5-turbo",
+            "messages": [{
+                "role": "user",
+                "content": q
+            }],
+            "temperature": temperature,
+            "max_tokens": maxTokens,
         });
+        console.log(body);
 
         try {
             const response = await axios.post(`${this.url}/v1/chat/completions`, body, { headers });
-            return { code: 'OK', status: response.status, data: response.data };
+            console.log(response);
+            return { code: "OK", status: response.status, data: response.data };
         } catch (error: any) {
-            return { code: 'Error', data: error };
+            console.log(error);
+            // https://platform.openai.com/docs/guides/error-codes/api-errors
+            if (error.response.status === 401) {
+                return { code: "Error", status: error.response.status, data: error.response.data.error.message };
+            } else if (error.response.status === 429) {
+                return { code: "Error", status: error.response.status, data: error.response.data.error.message };
+            } else if (error.response.status === 500) {
+                return { code: "Error", status: error.response.status, data: error.response.data.error.message };
+            } else {
+                return { code: "Error", status: error.response.status, data: error.message };
+            }
         }
     }
 
-    async executeCodex(key: string, q: string): Promise<any> {
+    async executeCodex(key: string, maxTokens: number, temperature: number, q: string): Promise<any> {
         const { headers } = this.buildHeader(key);
 
         var body = JSON.stringify({
-            'model': 'code-davinci-002',
-            'prompt': q,
-            'temperature': 0.1,
-            'max_tokens': 512,
-            'frequency_penalty': 0.38
+            "model": "code-davinci-002",
+            "prompt": q,
+            "temperature": temperature,
+            "max_tokens": maxTokens,
+            "frequency_penalty": 0.38
         });
 
         try {
             const response = await axios.post(`${this.url}/v1/completions`, body, { headers });
-            return { code: 'OK', status: response.status, data: response.data };
+            return { code: "OK", status: response.status, data: response.data };
         } catch (error: any) {
-            return { code: 'Error', data: error };
+            if (error.response.status === 401) {
+                return { code: "Error", status: error.response.status, data: error.response.data.error.message };
+            } else if (error.response.status === 429) {
+                return { code: "Error", status: error.response.status, data: error.response.data.error.message };
+            } else if (error.response.status === 500) {
+                return { code: "Error", status: error.response.status, data: error.response.data.error.message };
+            } else {
+                return { code: "Error", status: error.response.status, data: error.message };
+            }
         }
     }
 }

@@ -3,12 +3,12 @@
   "displayName": "OpenAI Developer",
   "description": "Integration with OpenAI models ChatGPT(GPT3.5) and Codex for Developer.",
   "license": "SEE LICENSE IN LICENSE.md",
-  "icon": "resources/openai.png",
+  "icon": "resources/media/openai.png",
   "repository": {
     "type": "git",
     "url": "https://github.com/mrsahugit/openai-developer"
   },
-  "version": "0.0.2",
+  "version": "0.0.3",
   "publisher": "manassahu",
   "engines": {
     "vscode": "^1.76.0"
@@ -23,6 +23,7 @@
     "chatgpt",
     "gpt-3",
     "codex",
+    "copilot",
     "ai"
   ],
   "activationEvents": [],
@@ -31,17 +32,45 @@
     "commands": [
       {
         "command": "openai-developer.changeAPIKey",
-        "title": "OpenAI Developer: Change API Key"
+        "title": "OpenAI Developer: Change API (OpenAI) key"
       },
       {
         "command": "openai-developer.startConversation",
         "title": "OpenAI Developer: Start Conversation"
+      },
+      {
+        "command": "openai-developer.explainCode",
+        "title": "OpenAI Developer: Explain the code"
+      },
+      {
+        "command": "openai-developer.findProblem",
+        "title": "OpenAI Developer: Why code is not working"
       }
     ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "openai-developer.startConversation",
+          "when": "editorTextFocus",
+          "group": "openai-developer-menu-group@1"
+        },
+        {
+          "command": "openai-developer.explainCode",
+          "when": "editorHasSelection",
+          "group": "openai-developer-menu-group@2"
+        },
+        {
+          "command": "openai-developer.findProblem",
+          "when": "editorHasSelection",
+          "group": "openai-developer-menu-group@3"
+        }
+      ]
+    },
     "configuration": {
       "title": "OpenAI Developer - Configurations",
       "properties": {
         "openai-developer.model": {
+          "order": 0,
           "markdownDescription": "The model (ChatGPT or Codex) to find answer for your queries. More pricing info at https://openai.com/pricing#chat",
           "type": "string",
           "default": "gpt-turbo",
@@ -57,6 +86,18 @@
             "A set of models that improve on GPT-3 and can understand as well as generate natural language or code. This model uses OpenAI credits, which will be charged to your OpenAI account associated with the linked API key.",
             "A set of models that can understand and generate code, including translating natural language to code. This model is free and uses no OpenAI credits, but may produce lower quality results."
           ]
+        },
+        "openai-developer.maxTokens": {
+          "order": 1,
+          "description": "Maximum number of tokens inside response per request",
+          "type": "number",
+          "default": 1024
+        },
+        "openai-developer.temperature": {
+          "order": 2,
+          "description": "What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic.",
+          "type": "number",
+          "default": 0.5
         }
       }
     }
