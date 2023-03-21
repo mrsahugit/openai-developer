@@ -45,6 +45,17 @@ Once your OpenAI API key has been set you can update it using the "OpenAI Develo
 2. Begin typing `OpenAI Developer: Change API Key`, and select it when it appears.
 3. Enter your OpenAI API key (see above instructions on how to find).
 
+### Generate Image
+
+<img src="https://raw.githubusercontent.com/mrsahugit/openai-developer/main/resources/media/generate-image.png">
+
+To generate desired image(s) from a text description
+
+1. Press `Ctrl` + `Shift` + `P` to open the Command Palette.
+2. Begin typing `OpenAI Developer: Generate Image`, and select it when it appears.
+3. Provide a description of the image.
+4. Wait for the response. It will appear in a new tab.
+
 ## Authentication
 
 When you query for the first time, you will be prompted to enter an OpenAI API key. This is used by the extension to access the API and is only sent to OpenAI.
@@ -87,7 +98,6 @@ To set the temperature follow these instructions:
 2. Search for openai-developer.temperature.
 3. Use a number between 0 to 2. Default is set to 0.5.
 
-
 ## Commands
 
 | Command                                               |                                                                |
@@ -95,7 +105,8 @@ To set the temperature follow these instructions:
 | `OpenAI Developer: Change API Key`                    | Change the Open API Key to set Open AI account detail.         |
 | `OpenAI Developer: Start Conversation`                | Start the conversation with OpenAI. Ask anything...            |
 | `OpenAI Developer: Explain the code`                  | Select your code and find the explanation for your code.       |
-| `OpenAI Developer: Why code is not working`           | Select your code and find out why the code is not working      |
+| `OpenAI Developer: Why code is not working`           | Select your code and find out why the code is not working.     |
+| `OpenAI Developer: Generate Image`                    | Generate desired image(s) from a text description.             |
 
 ## Requirements
 
@@ -104,6 +115,9 @@ You must have Visual Studio Code 1.75.0 (January 2023) or later to install the e
 ## Known Issues
 
 ## Release Notes
+
+### 0.0.4
+- `OpenAI Developer: Generate Image` command added
 
 ### 0.0.3
 

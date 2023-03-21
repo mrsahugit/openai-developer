@@ -26,7 +26,7 @@ export class OpenAIService {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${key}`
                 },
-            };            
+            };
         }
         return null;
     }  
@@ -43,14 +43,11 @@ export class OpenAIService {
             "temperature": temperature,
             "max_tokens": maxTokens,
         });
-        console.log(body);
 
         try {
             const response = await axios.post(`${this.url}/v1/chat/completions`, body, { headers });
-            console.log(response);
             return { code: "OK", status: response.status, data: response.data };
         } catch (error: any) {
-            console.log(error);
             // https://platform.openai.com/docs/guides/error-codes/api-errors
             if (error.response.status === 401) {
                 return { code: "Error", status: error.response.status, data: error.response.data.error.message };
@@ -78,6 +75,31 @@ export class OpenAIService {
         try {
             const response = await axios.post(`${this.url}/v1/completions`, body, { headers });
             return { code: "OK", status: response.status, data: response.data };
+        } catch (error: any) {
+            if (error.response.status === 401) {
+                return { code: "Error", status: error.response.status, data: error.response.data.error.message };
+            } else if (error.response.status === 429) {
+                return { code: "Error", status: error.response.status, data: error.response.data.error.message };
+            } else if (error.response.status === 500) {
+                return { code: "Error", status: error.response.status, data: error.response.data.error.message };
+            } else {
+                return { code: "Error", status: error.response.status, data: error.message };
+            }
+        }
+    }
+
+    async executeImage(key: string, total: number, size: string, q: string): Promise<any> {
+        const { headers } = this.buildHeader(key);
+
+        var body = JSON.stringify({
+            "prompt": q,
+            "n": total,
+            "size": size,
+        });
+
+        try {
+            const response = await axios.post(`${this.url}/v1/images/generations`, body, { headers });
+            return { code: "OK", status: response.status, data: response.data.data };
         } catch (error: any) {
             if (error.response.status === 401) {
                 return { code: "Error", status: error.response.status, data: error.response.data.error.message };

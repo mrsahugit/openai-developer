@@ -20,6 +20,7 @@ import { changeAPIKey } from './commands/changeAPIKey';
 import { startConversation } from './commands/startConversation';
 import { explainCode } from './commands/explainCode';
 import { findProblem } from './commands/findProblem';
+import { generateImage } from './commands/generateImage';
 
 export function activate(context: vscode.ExtensionContext) {
 
@@ -50,7 +51,11 @@ export function activate(context: vscode.ExtensionContext) {
 		await findProblem();
 	});
 
-	context.subscriptions.push(disposableChangeAPIKey, disposableStartConversation, disposableExplainCode, disposableFindProblem);
+	let disposableGenerateImage = vscode.commands.registerCommand('openai-developer.generateImage', async () => {
+		await generateImage();
+	});
+
+	context.subscriptions.push(disposableChangeAPIKey, disposableStartConversation, disposableExplainCode, disposableFindProblem, disposableGenerateImage);
 }
 
 export function deactivate() {}
